@@ -1,4 +1,7 @@
+# This page is [bit.ly/pdf-bagels](http://bit.ly/pdf-bagels)
+
 # Advanced PDF manipulation
+Sweet-talking PDFs into giving up the goods?
 
 ## Overview
 
@@ -7,7 +10,6 @@
 - not really an advertisment for coding yourself (but who else is really gonna do it for you?)
 - "Hands-on" but you can be more hands on after the class with the code, because sometimes stuff works better outside of the hands-on classes? 
 - This was added b/c of desire for more pdf manipulation, but we should do a quick poll--what techniques are people using and what do they wanna get? 
-
 
 ## Outline 
 
@@ -38,6 +40,19 @@ It's also possible the name has a space in it, which is annoying and my fault. Y
 
 #### PSA: Spaces in file names are almost always a bad idea! Maybe you should move it with something like `mv sample\ pdfs sample_pdfs`
 
+## Tab completion at the command line
+This has nothing to do with PDFs, but folks sometimes don't know that at the command line you can hit tab and it will try to complete the file name. Really helps with typing errors! 
+
+So I can type:
+`$ls cl`
+the hit tab, and it will fill in the rest of the path, and it will automagically become:
+
+`$ls classdata`
+
+Computers!
+
+
+
 ## Look at the metadata. It's not too helpful
 Poke at the pdf. There's usually not that much info here. It's interesting to see that Stacy Perrus created this on Wed. Sep2 2015 using Excel 2013. Don't think about this too much--anyone who really wants to remove this from the doc can. 
 
@@ -62,19 +77,77 @@ Poke at the pdf. There's usually not that much info here. It's interesting to se
 
 ## The simple stuff 
 
-Raw file is: (classsata/sample_pdfs/2015-2016-dma-ranks.pdf)[classdata/sample_pdfs/2015-2016-dma-ranks.pdf]
+Raw file is: [classsata/sample_pdfs/2015-2016-dma-ranks.pdf](classdata/sample_pdfs/2015-2016-dma-ranks.pdf)
 
 This is an advanced class, you probably already know this, right? 
 
-`$ classdata/sample_pdfs/2015-2016-dma-ranks.pdf classdata/sample_pdfs/2015-2016-dma-ranks-noargs.txt`
+`$pdftotext classdata/sample_pdfs/2015-2016-dma-ranks.pdf classdata/output/2015-2016-dma-ranks-noargs.txt`
 
 No args. Looks like this: 
 
-There are important differences between different versions of pdftotext, see more about it here. 
+	$ head classdata/output/2015-2016-dma-ranks-noargs.txt
+	
+	Local Television Market Universe Estimates
+	Estimates as of January 1, 2016 and used throughout the 2015-2016 television season
+	Estimates are effective September 26, 2015
+	Rank
+	1
+	2
+
+This is useless. 
+
+## 1 Advanced trick for using command line software
+Read the documentation!
+
+Use the -layout flag, with -f (first page = 1) and -l (last page = 1). So it only runs the first page
+
+`$pdftotext -layout -f 1 -l 1 classdata/sample_pdfs/2015-2016-dma-ranks.pdf classdata/output/2015-2016-dma-ranks-preservelayout.txt`
+
+	$ head classdata/output/2015-2016-dma-ranks-preservelayout.txt
+	
+	       Local Television Market Universe Estimates
+	       Estimates as of January 1, 2016 and used throughout the 2015-2016 television season
+	       Estimates are effective September 26, 2015
+	
+	Rank   Designated Market Area (DMA)                                TV Homes          % of US
+	  1    New York                                                       7,368,320            6.503
+	  2    Los Angeles                                                    5,489,810            4.845
+	  3    Chicago                                                        3,475,220            3.067
+	  4    Philadelphia                                                   2,917,920            2.575
+	  5    Dallas-Ft. Worth                                               2,646,370            2.335
+
+Run the read_dma.py file. The line that matters is this:
+
+`line_re = re.compile("\s+(\d+)\s{2,}(.+?)\s{3,}([\d,]+)\s{2,}([\d\.]+)\n")`
+
+REGEX! 
+
+
+`$ python read_dma.py`
+
+how it looks:
+
+	$ head classdata/output/2015-2016-dma-ranks-preservelayout.csv
+	rank,dma,households,us_percent
+	1,New York,"7,368,320",6.503
+	2,Los Angeles,"5,489,810",4.845
+	3,Chicago,"3,475,220",3.067
+	4,Philadelphia,"2,917,920",2.575
+	5,Dallas-Ft. Worth,"2,646,370",2.335
+	6,San Francisco-Oak-San Jose,"2,484,690",2.193
+	7,"Washington, DC (Hagrstwn)","2,443,640",2.156
+	8,Boston (Manchester),"2,411,250",2.128
+	9,Atlanta,"2,385,730",2.105
 
 
 
+There are important differences between different versions of pdftotext, see more about it [here](pdftotext_versionitis.md). 
 
+That was easy! It's harder for weirder files. 
+
+#### THERE ARE MANY WAYS TO DO THIS! You could use tabula's command line tool as well. 
+
+You can parse the heck out of text files, but stuff can get tricky. 
 
 ## OCR: short version
 
@@ -108,13 +181,19 @@ The next step is to turn this into a searchable pdf:
 Read more about quality! [https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality](https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality)
 
 
-# Not going there
- - handwriting 
- - pdfinfo util for pdf metadata (not installed I think)
+# Plumbing the pdf
 
-# General approach
+#### Point: 
 
-perl's unofficial motto: [there's more than one way to do it](https://en.wikipedia.org/wiki/There%27s_more_than_one_way_to_do_it) . Am gonna follow it here. I'm including examples for PDF2TXT, PDF2XL and Tabula, but since this is a hands-on class I'll leave them as exercises for the reader at home. 
+
+
+# Other cool stuff I shouldda talked about but proably didn't
+
+- [Google vision API](https://cloud.google.com/vision/?utm_source=google&utm_medium=cpc&utm_campaign=2015-q1-cloud-na-gcp-skws-freetrial-en&gclid=CNnhpLWNu9ICFVFahgodbpYF1Q) . Note that 'in-situ' extraction is a little different (lots of it is based on stroke-width transform, maybe?)
+
+- "A set of tools for extracting tables from PDF files helping to do data mining on (OCR-processed) scanned documents." https://github.com/WZBSocialScienceCenter/pdftabextract
+
+--> related: https://github.com/WZBSocialScienceCenter/pdf2xml-viewer
 
 ## Tabula-extractor
 
@@ -122,62 +201,9 @@ https://github.com/tabulapdf/tabula-java
 
 https://github.com/chezou/tabula-py
 
-####
-
-## helper tools
-test for the existence of these commands on mac / linux
-with 
-`which pdftk` 
-
-
-
-	$ pdftohtml 
-	pdftohtml version 0.41.0
-	Copyright 2005-2016 The Poppler Developers - http://poppler.freedesktop.org
-	Copyright 1999-2003 Gueorgui Ovtcharov and Rainer Dorsch
-	Copyright 1996-2011 Glyph & Cog, LLC
-	
-	Usage: pdftohtml [options] <PDF-file> [<html-file> <xml-file>]
-	  -f <int>              : first page to convert
-	  -l <int>              : last page to convert
-	  -q                    : don't print any messages or errors
-	  -h                    : print usage information
-	  -?                    : print usage information
-	  -help                 : print usage information
-	  --help                : print usage information
-	  -p                    : exchange .pdf links by .html
-	  -c                    : generate complex document
-	  -s                    : generate single document that includes all pages
-	  -i                    : ignore images
-	  -noframes             : generate no frames
-	  -stdout               : use standard output
-	  -zoom <fp>            : zoom the pdf document (default 1.5)
-	  -xml                  : output for XML post-processing
-	  -hidden               : output hidden text
-	  -nomerge              : do not merge paragraphs
-	  -enc <string>         : output text encoding name
-	  -fmt <string>         : image file format for Splash output (png or jpg)
-	  -v                    : print copyright and version info
-	  -opw <string>         : owner password (for encrypted files)
-	  -upw <string>         : user password (for encrypted files)
-	  -nodrm                : override document DRM settings
-	  -wbt <fp>             : word break threshold (default 10 percent)
-	  -fontfullname         : outputs font full name
-
-asdfa
+## PDFTOHTML
 
 `$ pdftohtml classdata/sample\ pdfs/senate_page_sample.pdf -c generated_files/html/senate_page_sample_complex.html`
-
-  
-
-	$ ls -l generated_files/html/senate_page_sample_complex*`
-	(pdf17) Jacobs-MacBook-Pro-2:pdf17 jfenton$ ls -l generated_files/html/senate_page_sample_complex*
-	-rw-r--r--  1 jfenton  staff  25070 Mar  2 12:57 generated_files/html/senate_page_sample_complex-1.html
-	-rw-r--r--  1 jfenton  staff    449 Mar  2 12:57 generated_files/html/senate_page_sample_complex.html
-	-rw-r--r--  1 jfenton  staff   3612 Mar  2 12:57 generated_files/html/senate_page_sample_complex001.png
-	-rw-r--r--  1 jfenton  staff    212 Mar  2 12:57 generated_files/html/senate_page_sample_complex_ind.html
-
-lkj;lk
 
 	$ head -n 100 generated_files/html/senate_page_sample_complex-1.html | tail -n 3
 	<p style="position:absolute;top:306px;left:584px;white-space:nowrap" class="ft01">METAIRIE&#160;TO&#160;COVINGTON&#160;AND&#160;RETURN</p>
@@ -185,13 +211,3 @@ lkj;lk
 	<p style="position:absolute;top:314px;left:584px;white-space:nowrap" class="ft01">STAFF&#160;PER&#160;DIEM</p>
 
 stopping point -- what we have here are words in space. Actually, this is pretty good, because it found the cells for us. well, probably, one page isn't enough to be sure.
-
-
-
-# Other cool stuff I shouldda talked about but didn't
-
-- [Google vision API](https://cloud.google.com/vision/?utm_source=google&utm_medium=cpc&utm_campaign=2015-q1-cloud-na-gcp-skws-freetrial-en&gclid=CNnhpLWNu9ICFVFahgodbpYF1Q) . Note that 'in-situ' extraction is a little different (lots of it is based on stroke-width transform, maybe?)
-
-- "A set of tools for extracting tables from PDF files helping to do data mining on (OCR-processed) scanned documents." https://github.com/WZBSocialScienceCenter/pdftabextract
-
---> related: https://github.com/WZBSocialScienceCenter/pdf2xml-viewer

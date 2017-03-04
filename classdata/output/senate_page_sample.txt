@@ -1,0 +1,70 @@
+DOCUMENT NO.       DATE                       PAYEE NAME   OBLIGATION/SERVICE                                    DESCRIPTION                                               AMOUNT ($)
+                                                                 DATES
+                  POSTED
+                                                            START         END
+
+   DVIT21500781   09/09/2015   LAYTON JR,POWELL A          08/24/2015   08/24/2015   STAFF PER DIEM                                                                               15.95
+                                                                                     STAFF TRANSPORTATION                                                                         82.50
+                                                                                     SHREVEPORT TO ALEXANDRIA AND RETURN
+   DVIT21500782   09/09/2015   SWANNER,AMANDA L            08/27/2015   08/27/2015   STAFF TRANSPORTATION                                                                         11.22
+                                                                                     BATON ROUGE TO DENHAM SPRINGS AND RETURN
+   DVIT21500783   09/09/2015   SWANNER,AMANDA L            08/28/2015   08/28/2015   STAFF TRANSPORTATION                                                                         49.50
+                                                                                     BATON ROUGE TO METAIRIE AND RETURN
+   DVIT21500784   09/10/2015   JOHNSON,MARCUS              08/01/2015   08/31/2015   STAFF TRANSPORTATION                                                                         81.51
+                                                                                     METAIRIE OFFICE: INTERDEPARTMENTAL TRANSPORTATION
+   DVIT21500785   09/10/2015   JOHNSON,MARCUS              08/10/2015   08/10/2015   STAFF PER DIEM                                                                               16.73
+                                                                                     STAFF TRANSPORTATION                                                                         50.16
+                                                                                     METAIRIE TO BATON ROUGE AND RETURN
+   DVIT21500786   09/11/2015   PEREZ,RACHEL C              08/03/2015   08/24/2015   STAFF TRANSPORTATION                                                                        148.83
+                                                                                     METAIRIE TO THE FOLLOWING AND RETURN: 8/3, 24 NEW ORLEANS; 8/4 HOUMA; 8/7 SLIDELL,
+                                                                                     PEARL RIVER; 8/12 SLIDELL; 8/18 LULING, HAHNVILLE, HOUMA
+   DVIT21500787   09/10/2015   PEREZ,RACHEL C              08/17/2015   08/17/2015   STAFF TRANSPORTATION                                                                         59.40
+                                                                                     METAIRIE TO SLIDELL, NEW ORLEANS, THIBODAUX AND RETURN
+   DVIT21500788   09/10/2015   PEREZ,RACHEL C              08/26/2015   08/26/2015   STAFF PER DIEM                                                                               35.00
+                                                                                     STAFF TRANSPORTATION                                                                         27.42
+                                                                                     METAIRIE TO COVINGTON AND RETURN
+   DVIT21500789   09/10/2015   PEREZ,RACHEL C              08/28/2015   08/28/2015   STAFF PER DIEM                                                                               25.00
+                                                                                     STAFF TRANSPORTATION                                                                         25.08
+                                                                                     METAIRIE TO SLIDELL AND RETURN
+   DVIT21500792   09/15/2015   LABORDE,KATE                08/09/2015   08/20/2015   STAFF PER DIEM                                                                              426.44
+                                                                                     STAFF TRANSPORTATION                                                                        917.17
+
+
+
+
+                                                                                                                                                                                          B-1926
+                                                                                     WASHINGTON DC TO NEW ORLEANS, LAFAYETTE, GONZALES, LAFAYETTE, ZACHARY, NEW
+                                                                                     ORLEANS, RUSTON, LAFAYETTE, NEW ORLEANS AND RETURN
+   DVIT21500793   09/15/2015   LABORDE,KATE                08/25/2015   08/28/2015   STAFF PER DIEM                                                                               89.67
+                                                                                     STAFF TRANSPORTATION                                                                        510.45
+                                                                                     WASHINGTON DC TO METAIRIE AND RETURN
+   DVIT21500797   09/18/2015   CHESTNUT,MURPHY F           08/10/2015   08/21/2015   STAFF TRANSPORTATION                                                                        403.26
+                                                                                     HODGE TO THE FOLLOWING AND RETURN: 8/10 STERLINGTON; 8/11 ARCADIA; 8/12 RUSTON,
+                                                                                     WINNFIELD, RUSTON, MONROE; 8/13, 18 ALEXANDRIA; 8/14 FARMERVILLE; 8/17 STERLINGTON,
+                                                                                     CHATHAM, WINNFIELD; 8/19 DODSON; 8/20 WEST MONROE; 8/21 WINNFIELD, ALEXANDRIA
+   DVIT21500798   09/15/2015   CHESTNUT,MURPHY F           08/22/2015   08/27/2015   STAFF TRANSPORTATION                                                                         96.69
+                                                                                     HODGE TO THE FOLLOWING AND RETURN: 8/22 RUSTON; 8/24 WINNFIELD, DRY PRONG; 8/26
+                                                                                     CHATHAM, JONESBORO; 8/27 STERLINGTON
+   DVIT21500799   09/24/2015   CHESTNUT,MURPHY F           08/28/2015   09/05/2015   STAFF TRANSPORTATION                                                                        358.38
+                                                                                     HODGE TO THE FOLLOWING AND RETURN: 8/28 CHATHAM, WINNFIELD; 8/31 ARCADIA, SALINE,
+                                                                                     ARCADIA, WINNFIELD; 9/1 DRY PRONG; 9/2 NATCHITOCHES HOMER; 9/5 METAIRIE
+   DVIT21500800   09/17/2015   DOSS,DAVID B                07/31/2015   09/02/2015   STAFF TRANSPORTATION                                                                         50.49
+                                                                                     METAIRIE OFFICE: INTERDEPARTMENTAL TRANSPORTATION
+   DVIT21500801   09/17/2015   DOSS,DAVID B                08/12/2015   08/12/2015   STAFF TRANSPORTATION                                                                         15.27
+                                                                                     METAIRIE OFFICE: INTERDEPARTMENTAL TRANSPORTATION
+   DVIT21500802   09/17/2015   DOSS,DAVID B                08/13/2015   08/13/2015   STAFF TRANSPORTATION                                                                         14.19
+                                                                                     METAIRIE TO COVINGTON TO MADISONVILLE
+   DVIT21500803   09/17/2015   DOSS,DAVID B                08/17/2015   08/17/2015   STAFF TRANSPORTATION                                                                         14.85
+                                                                                     MADISONVILLE TO COVINGTON TO METAIRIE
+   DVIT21500804   09/17/2015   DOSS,DAVID B                08/21/2015   08/21/2015   STAFF PER DIEM                                                                               17.90
+                                                                                     STAFF TRANSPORTATION                                                                        100.65
+                                                                                     METAIRIE TO CROWLEY AND RETURN
+   DVIT21500805   09/17/2015   DOSS,DAVID B                08/24/2015   08/24/2015   STAFF TRANSPORTATION                                                                         17.26
+                                                                                     METAIRIE OFFICE: INTERDEPARTMENTAL TRANSPORTATION
+   DVIT21500806   09/17/2015   DOSS,DAVID B                08/25/2015   08/25/2015   STAFF TRANSPORTATION                                                                         14.85
+                                                                                     METAIRIE TO COVINGTON TO MADISONVILLE
+   DVIT21500807   09/17/2015   DOSS,DAVID B                08/26/2015   08/26/2015   STAFF TRANSPORTATION                                                                         37.62
+                                                                                     MADISONVILLE TO CHALMETTE, SLIDELL TO METAIRIE
+   DVIT21500808   09/17/2015   DOSS,DAVID B                08/27/2015   08/27/2015   STAFF TRANSPORTATION                                                                         20.27
+                                                                                     METAIRIE OFFICE: INTERDEPARTMENTAL TRANSPORTATION
+
