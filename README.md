@@ -36,6 +36,8 @@ For our purposes, there are three kinds of PDFs:
 This document assumes that the data files are in classdata/sample_pdfs/ . Important reminder before we go any further!! 
 #### The file paths in the lab are likely slightly different than what's below any you may have to adjust accordingly. That means instead of typing classdata/sample\_pdfs/ you might have to type classdata/this\_class\_name/sample\_pdfs.
 
+## Update: Desktop -> Hands-on Data -> Session name
+
 It's also possible the name has a space in it, which is annoying and my fault. You can either *move* the file or make sure you get the spaces right. 
 
 #### PSA: Spaces in file names are almost always a bad idea! Maybe you should move it with something like `mv sample\ pdfs sample_pdfs`
