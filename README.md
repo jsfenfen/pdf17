@@ -75,6 +75,39 @@ Poke at the pdf. There's usually not that much info here. It's interesting to se
 	Optimized:      no
 	PDF version:    1.6
 
+# OCR: short version
+
+- Overview will give you back searchable pdfs if you upload your files with them. And you probably want to do this anyway, because it rocks. As a side benefit you can just skip ahead to the next section if you do. 
+
+This was talked about a fair amount in the intermediate PDF class and I'm not gonna go into much detail. But as a reference, here's an example. We're not gonna do it. 
+
+#### Preprocessing
+
+This is the simplified version: see full details in the [classdata/sample_pdfs/WFLX](classdata/sample_pdfs/WFLX/README.md) dir.
+
+Tesseract operates on image files, so you'll need to convert pdfs to images first. The simplest way is probably to use imagemagick. For installation see [here](http://www.imagemagick.org/script/binary-releases.php).
+
+Image pre-processing is a dark art and you can spend a lot of time on it. There's actually a script intended for OCR written by the author of imagemagick here: http://www.fmwconcepts.com/imagemagick/textcleaner/index.php. 
+
+#### Make the directory first if it doesn't already exist! : `$mkdir classdata/output` -- or wherever you output your data. 
+
+For [classdata/sample_pdfs/sample\_contract.pdf](classdata/sample_pdfs/WFLX/sample_contract.pdf), convert the first page with: `convert -density 300 ./classdata/sample_pdfs/sample\_contract.pdf ./output/sample_contract_p1.png` ; the result is [here](classdata/output/WFLX/sample\_contract\_p1.png). 
+
+#### Imagemagick has crappy error messages. Instead of saying a file doesn't exist, it says something like this:
+	convert: no images defined `./output/sample_contract_p1.png' @ error/convert.c/ConvertImageCommand/3252.
+
+Image pre-processing is a dark art and you can spend a lot of time on it. There's actually a script intended for OCR written by the author of imagemagick here: 
+http://www.fmwconcepts.com/imagemagick/textcleaner/index.php
+
+The next step is to turn this into a searchable pdf:
+
+`tesseract  classdata/sample_pdfs/WFLX/sample_contract_p1.png classdata/output/sample_contract_p1_text_added PDF`
+ 
+
+Read more about quality! [https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality](https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality)
+
+
+
 ## The simple stuff 
 
 Raw file is: [classsata/sample_pdfs/2015-2016-dma-ranks.pdf](classdata/sample_pdfs/2015-2016-dma-ranks.pdf)
@@ -143,51 +176,92 @@ how it looks:
 
 There are important differences between different versions of pdftotext, see more about it [here](pdftotext_versionitis.md). 
 
-That was easy! It's harder for weirder files. 
 
 #### THERE ARE MANY WAYS TO DO THIS! You could use tabula's command line tool as well. 
 
-You can parse the heck out of text files, but stuff can get tricky. 
+That was easy! It's harder for weirder files. 
 
-## OCR: short version
-
-- Overview will give you back searchable pdfs if you upload your files with them. And you probably want to do this anyway, because it rocks. As a side benefit you can just skip ahead to the next section if you do. 
-
-This was talked about a fair amount in the intermediate PDF class and I'm not gonna go into much detail. But as a reference, here's an example. We're not gonna do it. 
-
-#### Preprocessing
-
-This is the simplified version: see full details in the [classdata/sample_pdfs/WFLX](classdata/sample_pdfs/WFLX/README.md) dir.
-
-Tesseract operates on image files, so you'll need to convert pdfs to images first. The simplest way is probably to use imagemagick. For installation see [here](http://www.imagemagick.org/script/binary-releases.php).
-
-Image pre-processing is a dark art and you can spend a lot of time on it. There's actually a script intended for OCR written by the author of imagemagick here: http://www.fmwconcepts.com/imagemagick/textcleaner/index.php. 
-
-#### Make the directory first if it doesn't already exist! : `$mkdir classdata/output` -- or wherever you output your data. 
-
-For [classdata/sample_pdfs/sample\_contract.pdf](classdata/sample_pdfs/WFLX/sample_contract.pdf), convert the first page with: `convert -density 300 ./classdata/sample_pdfs/sample\_contract.pdf ./output/sample_contract_p1.png` ; the result is [here](classdata/output/WFLX/sample\_contract\_p1.png). 
-
-#### Imagemagick has crappy error messages. Instead of saying a file doesn't exist, it says something like this:
-	convert: no images defined `./output/sample_contract_p1.png' @ error/convert.c/ConvertImageCommand/3252.
-
-Image pre-processing is a dark art and you can spend a lot of time on it. There's actually a script intended for OCR written by the author of imagemagick here: 
-http://www.fmwconcepts.com/imagemagick/textcleaner/index.php
-
-The next step is to turn this into a searchable pdf:
-
-`tesseract  classdata/sample_pdfs/WFLX/sample_contract_p1.png classdata/output/sample_contract_p1_text_added PDF`
- 
-
-Read more about quality! [https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality](https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality)
+You can parse the heck out of text files, but stuff can get tricky. This is a text-based pdf: [classdata/sample_pdfs/150109DSP-Milw-505-90D.pdf](classdata/sample_pdfs/150109DSP-Milw-505-90D.pdf)
 
 
 # Plumbing the pdf
 
-#### Point: 
+### Version in the labs is 0.4.6... Current version is 0.5.3
+ 
+There's a bug in 0.4.6... 
+
+### Running with scissors:
+
+Should we upgrade? Use:
+
+`$ sudo pip install pdfplumber==0.5.3` 
+
+then enter admin password
+
+Default is to spit out
+
+`$ pdfplumber sample_pdfs/150109DSP-Milw-505-90D.pdf --pages 1 > output/150109DSP-Milw-505-90D.csv`
+
+	$ head output/150109DSP-Milw-505-90D.csv
+	object_type,page_number,x0,x1,y0,y1,doctop,top,bottom,width,height,adv,fontname,linewidth,points,size,text,upright
+	char,1,23.760,29.565,23.067,33.768,758.232,758.232,768.933,5.805,10.701,0.722,ArialMT,,,10.701,D,True
+	char,1,29.517,35.322,23.067,33.768,758.232,758.232,768.933,5.805,10.701,0.722,ArialMT,,,10.701,C,True
+	char,1,35.273,40.186,23.067,33.768,758.232,758.232,768.933,4.912,10.701,0.611,ArialMT,,,10.701,F,True
+	char,1,40.202,42.879,23.067,33.768,758.232,758.232,768.933,2.677,10.701,0.333,ArialMT,,,10.701,-,True
+
+There are chars and rects in this. Let's look at the output a little. 
+
+	$ python
+	Python 2.7.11 (default, Jan 22 2016, 08:29:18) 
+	[GCC 4.2.1 Compatible Apple LLVM 7.0.2 (clang-700.1.81)] on darwin
+	Type "help", "copyright", "credits" or "license" for more information.
+	>>> import pdfplumber
+	>>> file = "your filepath here!"
+	>>> pdfobj = pdfplumber.open(file)
+	>>> pdfobj.pages 
+	[ output suppressed here]
+	>>> firstpage = pdfobj.pages[0]
+	
+	# You can see other page attributes here too -- 
+	
+	>>> firstpage.width
+		Decimal('612.000')	
+	>>> firstpage.height
+		Decimal('792.000')
+		
+#### More docs here: https://github.com/jsvine/pdfplumber
+
+	tables = firstpage.find_tables()
+	
+#### Read the code, but for weird pdfs, often best to code it yourself
+
+	>>> words = firstpage.extract_words()
+	>>>  [i['text'] for i in words]
+	>>> import pandas as pd
+	>>> df = pd.DataFrame(words)
+	
+	
+By default pdfplumber doesn't pass fonts through, but you might want to write code yourself to do this. 
+	
+pandas syntax! Show the location of words that start with "Number"
+
+	>>>  df[df.text.str.startswith("Number")]
+
+Filter by position:
+
+	>>>  df[ ( df.x0 > 100 ) & ( df.x0 < 400 ) ]
+	
+Checkboxes:
+	>>> rects = firstpage.rects
+	>>> for rect in rects:
+	...  print rect['height']
+
+	>>> for f in firstpage.curves:
+	>>>  print f
 
 
 
-# Other cool stuff I shouldda talked about but proably didn't
+# Other cool stuff I shouldda talked about but probably didn't
 
 - [Google vision API](https://cloud.google.com/vision/?utm_source=google&utm_medium=cpc&utm_campaign=2015-q1-cloud-na-gcp-skws-freetrial-en&gclid=CNnhpLWNu9ICFVFahgodbpYF1Q) . Note that 'in-situ' extraction is a little different (lots of it is based on stroke-width transform, maybe?)
 
